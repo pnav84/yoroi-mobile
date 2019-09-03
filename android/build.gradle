@@ -2,6 +2,7 @@
 
 buildscript {
     ext {
+        // note: if changed, sdk versions should also be updated in AndroidManifest.xml
         buildToolsVersion = "28.0.3"
         minSdkVersion = 21
         compileSdkVersion = 28
