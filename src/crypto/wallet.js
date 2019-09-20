@@ -152,6 +152,33 @@ export class Wallet {
     this._externalChain.addSubscriberToNewAddresses(this.notify)
   }
 
+  // TODO
+  async _createFromPublicMasterKey(publicMasterKey) {
+    Logger.info('create wallet from public masterKey key')
+    this._id = uuid.v4()
+    assert.assert(!this._isInitialized, 'createWallet: !isInitialized')
+    const account = await util.getAccountFromPublicMasterKey()
+    this._transactionCache = new TransactionCache()
+
+    // initialize address chains
+    this._internalChain = new AddressChain(
+      new AddressGenerator(account, 'Internal'),
+    )
+    this._externalChain = new AddressChain(
+      new AddressGenerator(account, 'External'),
+    )
+
+    // Create at least one address in each block
+    await this._internalChain.initialize()
+    await this._externalChain.initialize()
+
+    this._setupSubscriptions()
+    this.notify()
+
+    this._isInitialized = true
+    return this._id
+  }
+
   async _create(mnemonic: string, newPassword: string) {
     Logger.info('create wallet')
     this._id = uuid.v4()
@@ -644,6 +671,31 @@ class WalletManager {
     // Ignore id & name for now
     const wallet = new Wallet()
     const id = await wallet._create(mnemonic, password)
+
+    this._id = id
+    this._wallets = {
+      ...this._wallets,
+      [id]: {id, name, isEasyConfirmationEnabled: false},
+    }
+
+    this._wallet = wallet
+    await this._saveState(wallet)
+    wallet.subscribe(this._notify)
+    await storage.write(`/wallet/${id}`, this._wallets[id])
+    this._closePromise = new Promise((resolve, reject) => {
+      this._closeReject = reject
+    })
+    this._notify()
+    return wallet
+  }
+
+  // TODO
+  async createHardwareWallet(
+    name?: string,
+  ): Promise<Wallet> {
+    // Ignore id & name for now
+    const wallet = new Wallet()
+    const id = await wallet._createFromPublicMasterKey(name)
 
     this._id = id
     this._wallets = {

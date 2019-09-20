@@ -198,3 +198,24 @@ export const formatBIP44 = (
     ADDRESS_TYPE_TO_CHANGE[type]
   }/${index}`
 }
+
+// borrowed from adaAccount.js::createHardwareWalletAccount() in Yoroi-frontend
+export const getAccountFromPublicMasterKey = (
+  publicMasterKey: string,
+  accountIndex: number
+) => {
+  // this is the way we do it in yoroi-frontend. Doesn't work here
+  const pubKey = Wallet.PublicKey.from_hex(publicMasterKey)
+  const account = Wallet.Bip44AccountPublic.new(
+    pubKey,
+    Wallet.DerivationScheme.v2(),
+  )
+  // this is not exactly the same crypto account type defined above
+  const cryptoAccount = {
+    root_cached_key: account,
+    derivation_scheme: 'V2',
+    account: accountIndex,
+  }
+
+  return cryptoAccount
+}

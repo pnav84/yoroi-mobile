@@ -37,12 +37,14 @@ const messages = defineMessages({
 type Props = {
   navigateRestoreWallet: () => mixed,
   navigateCreateWallet: () => mixed,
+  navigateConnectNanoX: () => mixed,
   intl: any,
 }
 
 const WalletInitScreen = ({
   navigateCreateWallet,
   navigateRestoreWallet,
+  navigateConnectNanoX,
   intl,
 }: Props) => (
   <SafeAreaView style={styles.safeAreaView}>
@@ -64,6 +66,13 @@ const WalletInitScreen = ({
           outline
           onPress={navigateRestoreWallet}
           title={intl.formatMessage(messages.restoreWalletButton)}
+          style={styles.createButton}
+        />
+
+        <Button
+          outline
+          onPress={navigateConnectNanoX}
+          title={'Connect to Nano X'}
         />
       </View>
     </ScreenBackground>
@@ -79,6 +88,8 @@ export default injectIntl(
         navigation.navigate(WALLET_INIT_ROUTES.RESTORE_WALLET),
       navigateCreateWallet: ({navigation}) => (event) =>
         navigation.navigate(WALLET_INIT_ROUTES.CREATE_WALLET),
+      navigateConnectNanoX: ({navigation}) => (event) =>
+        navigation.navigate(WALLET_INIT_ROUTES.CONNECT_NANO_X),
     }),
   )(WalletInitScreen),
 )

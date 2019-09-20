@@ -346,6 +346,14 @@ export const createWallet = (
   dispatch(updateWallets())
 }
 
+// TODO
+export const createHardwareWallet = (
+  name?: string,
+) => async (dispatch: Dispatch<any>) => {
+  await walletManager.createHardwareWallet(name)
+  dispatch(updateWallets())
+}
+
 export const removeCurrentWallet = () => async (dispatch: Dispatch<any>) => {
   await walletManager.removeCurrentWallet()
   dispatch(updateWallets())
