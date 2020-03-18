@@ -8,6 +8,8 @@ buildscript {
         targetSdkVersion = 29
         supportLibVersion = "28.0.0"
         androidXAnnotation = "1.1.0"
+        androidXCore = "1.0.2" // NetInfo
+        firebaseIidVersion = "19.0.1" // DeviceInfo
         kotlinVersion = "1.3.10"
     }
     repositories {
@@ -32,11 +34,15 @@ allprojects {
         jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url "$rootDir/../node_modules/react-native/android"
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
         }
         maven {
             // All of Detox' artifacts are provided via the npm module
-            url "$rootDir/../node_modules/detox/Detox-android"
+            url("$rootDir/../node_modules/detox/Detox-android")
         }
     }
 }
