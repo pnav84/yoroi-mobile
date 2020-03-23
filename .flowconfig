@@ -82,7 +82,6 @@ server.max_workers=1
 sketchy-null-number=warn
 sketchy-null-mixed=warn
 sketchy-number=warn
-untyped-type-import=warn
 nonstrict-import=warn
 deprecated-type=warn
 inexact-spread=warn
