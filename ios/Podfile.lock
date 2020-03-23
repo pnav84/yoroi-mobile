@@ -123,6 +123,7 @@ PODS:
   - SentryReactNative (0.43.2):
     - React
     - Sentry (~> 4.1.3)
+  - SocketRocket (0.5.1)
   - yoga (0.60.0.React)
 
 DEPENDENCIES:
@@ -163,10 +164,11 @@ DEPENDENCIES:
   - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - SentryReactNative (from `../node_modules/react-native-sentry`)
+  - SocketRocket (from `../node_modules/detox/ios_src/SocketRocket`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - boost-for-react-native
     - Sentry
 
@@ -245,51 +247,54 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   SentryReactNative:
     :path: "../node_modules/react-native-sentry"
+  SocketRocket:
+    :path: "../node_modules/detox/ios_src/SocketRocket"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  BVLinearGradient: 8cbc5155c978f2e43098818c91d206d07aae6d30
+  BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  React: 4b3c068e793e96672dcd186a2b572fac43e4b031
-  React-Core: 3dc86b22920597f813c62a96db3165950b64826b
-  React-cxxreact: 0dacb291e59b81e7c3f22a2118bee853ba8a60d2
-  React-DevSupport: 4eb4135386acd10c2586cc9c759bf96b4dac035e
-  React-fishhook: 86ca737527bb9d860efbb943c11c729a5b69aa3d
-  React-jsi: 8e128c4d0d8febc2977ef617d1c09bb54326069c
-  React-jsiexecutor: 7a3554f703a58963ec80b860144ea0f0e9b910e1
-  React-jsinspector: d4ed52225912efe0019bb7f1a225aec20f23049a
-  react-native-background-timer: 1b6e6b4e10f1b74c367a1fdc3c72b67c619b222b
-  react-native-camera: 7c6cf8ddc64405e1aff0a26d1b487378597f9fed
-  react-native-chain-libs: 38ce428930a80cbc6dbc44144c6049288b3569c6
-  react-native-config: f2c2ae45625a068c35681a16b9bfb1ca58b0adc7
-  react-native-netinfo: 73303369946c2487c600418961bfdc87748b832f
-  react-native-randombytes: aa2b5e8bf90a9c0402101c62ed7b145f02940e32
-  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
-  react-native-webview: 1db33907230d0eb344964d6f3bb56b9ee77e25a4
-  React-RCTActionSheet: b27ff3cf3a68f917c46d2b94abf938b625b96570
-  React-RCTAnimation: 9e4708e5bd65fca8285ce7c0aa076f3f4fa5c2f8
-  React-RCTBlob: 6eafcc3a24f33785692a7be24918ade607bc8719
-  React-RCTImage: 46b965d7225b428ea11580ead08a4318aef1d6be
-  React-RCTLinking: d65b9f56cf0b8e171575a86764df7bb019ac28d6
-  React-RCTNetwork: 783ee2f430740e58f724e46adc79fe7feff64202
-  React-RCTSettings: aa28315aadfbfaf94206d865673ae509f1e97c07
-  React-RCTText: 685fca2e13b024271048e7e247ef24476f28a41e
-  React-RCTVibration: 4ee1cf208ab17a50fafb1c16ffe28fe594a64e4f
-  React-RCTWebSocket: fca087d583724aa0e5fef7d911f0f2a28d0f2736
-  RNCardano: 22c191e79e4b8af291d619615c473d2b0139c451
-  RNCAsyncStorage: b63d6e83fc629b01df6b624688f17944cea5637f
-  RNDeviceInfo: 310c1f43d418d950a193c7650de2f9559c906048
-  RNFS: c9bbde46b0d59619f8e7b735991c60e0f73d22c1
-  RNKeychain: 3aa3cf891a09a0d18d306862ab2bb9e106079b24
-  RNSVG: 6c8e8c6f9e5a0caf910dd25aa6e4216045426e1d
+  React: c438ccc7e14e86d4702bb92d7e262f549ffaa995
+  React-Core: c76495f5c14e73c0f803b89c3fa83f804da61bd6
+  React-cxxreact: f64bc64cf4682d6ea5a064f6017da72482858682
+  React-DevSupport: 30336bca00f72681eac995d21a31b963e7d5cfec
+  React-fishhook: 73dc8058ca42828cc92e8fbba6cd9571100e10ca
+  React-jsi: 40f467ff088c811c6630acccb4aea57ea7ccb1b5
+  React-jsiexecutor: e4b4717060a0cd8d0270323b5655a68c95432efd
+  React-jsinspector: 044105eea064aec81adc5e4d777a8f6589e7d094
+  react-native-background-timer: bb7a98c8e97fc7c290de2d423dd09ddb73dcbcbb
+  react-native-camera: 9c50d7def800895e7991ccda6203929553ceec9c
+  react-native-chain-libs: 21d1b7d9ffc9f563d1985210f7f6e4de747b149a
+  react-native-config: 39fb6bf780040eebdd52184a4198ae95d1c2a75c
+  react-native-netinfo: a91b5cf92ed3ada997cfe2bf067633386eb19fd8
+  react-native-randombytes: d3184d351604f78e019535178766590188bbc133
+  react-native-splash-screen: a49be22f0f6648b8416f3bd28258645eeaa5b42b
+  react-native-webview: ad9581723f4d401c22cb3a371811d4dc9310df56
+  React-RCTActionSheet: 08864c609d9f959abf3d51fdd93f8bc6e91f21eb
+  React-RCTAnimation: a4547e9fac2627ded3df9d302f5558b475faf819
+  React-RCTBlob: 62d5c263a2adb8f7a2cafd601beba18a2d99cbbb
+  React-RCTImage: 963859de2b05d2037d1b7842cdbddc8d7f3a2f3b
+  React-RCTLinking: 5998a7db9a6156ed112b006d01f76b2d1cc83d98
+  React-RCTNetwork: 0b676e8194f3f893db813007d37e37e9820173a3
+  React-RCTSettings: fdd7606f1b6050eced69fc6046d5db6768aefd57
+  React-RCTText: 36c0532feb5521cb295ba80e7e44b70cf1c36fc7
+  React-RCTVibration: dabb8d59bb47e1d9124b3f77bfdc1b33d42b0a74
+  React-RCTWebSocket: f32b93e0953d7c07fd5dd45305406282cfdc95cf
+  RNCardano: 294ac9c230024b2ac5d91459b4ea4ac96ccdd3bf
+  RNCAsyncStorage: 6ae5aba8a41bfe0a9f21885ec91faf23ca3fe7ee
+  RNDeviceInfo: 5b5b42b12587207b6bd686441ac42d19d8e07933
+  RNFS: bbb1a64eb245763daf34aea86f97c97c4e85f74c
+  RNKeychain: 627c6095cef215dd3d9804a9a9cf45ab96aa3997
+  RNSVG: 6252323c0312735f0af5f58b5adf2965b6a9ffbf
   Sentry: 4e8a17b61ddd116f89536cc81d567fdee1ebca96
-  SentryReactNative: 07237139c00366ea2e75ae3e5c566e7a71c27a90
-  yoga: 616fde658be980aa60a2158835170f3f9c2d04b4
+  SentryReactNative: fc630be25b30c1a494b478ba1fa38f761cc6da20
+  SocketRocket: b46b988afa63d7a783df2d604d296c83c059e516
+  yoga: 88c514f310aff89b94a14c5fbf44b95735af0cb7
 
-PODFILE CHECKSUM: b0baa11580f27cc1329dd7b40fc8a36888c1aef5
+PODFILE CHECKSUM: e975e2773efbe7a78324925237776ca7568779dd
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.5.3

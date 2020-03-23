@@ -29,6 +29,19 @@ target 'emurgo' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'react-native-chain-libs', :podspec => '../node_modules/react-native-chain-libs/react-native-chain-libs.podspec'
+  pod 'RNDeviceInfo', :podspec => '../node_modules/react-native-device-info/RNDeviceInfo.podspec'
+  pod 'RNCAsyncStorage', :podspec => '../node_modules/@react-native-community/async-storage/RNCAsyncStorage.podspec'
+  pod 'SentryReactNative', :podspec => '../node_modules/react-native-sentry/SentryReactNative.podspec'
+  pod 'react-native-config', :podspec => '../node_modules/react-native-config/react-native-config.podspec'
+  pod 'ReactNativePermissions', :podspec => '../node_modules/react-native-permissions/ReactNativePermissions.podspec'
+  pod 'RNKeychain', :podspec => '../node_modules/react-native-keychain/RNKeychain.podspec'
+  pod 'RNSVG', :podspec => '../node_modules/react-native-svg/RNSVG.podspec'
+  pod 'RNFS', :podspec => '../node_modules/react-native-fs/RNFS.podspec'
+  pod 'react-native-randombytes', :podspec => '../node_modules/react-native-randombytes/react-native-randombytes.podspec'
+  pod 'react-native-splash-screen', :podspec => '../node_modules/react-native-splash-screen/react-native-splash-screen.podspec'
+  pod 'RNCardano', :podspec => '../node_modules/react-native-cardano/ios/RNCardano.podspec'
+  
   target 'emurgoTests' do
     inherit! :search_paths
     # Pods for testing
