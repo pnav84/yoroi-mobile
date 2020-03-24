@@ -41,6 +41,9 @@ target 'emurgo' do
   pod 'react-native-randombytes', :podspec => '../node_modules/react-native-randombytes/react-native-randombytes.podspec'
   pod 'react-native-splash-screen', :podspec => '../node_modules/react-native-splash-screen/react-native-splash-screen.podspec'
   pod 'RNCardano', :podspec => '../node_modules/react-native-cardano/ios/RNCardano.podspec'
+  pod 'react-native-camera', :podspec => '../node_modules/react-native-camera/react-native-camera.podspec'
+  pod 'BVLinearGradient', :podspec => '../node_modules/react-native-linear-gradient/BVLinearGradient.podspec'
+  pod 'react-native-background-timer', :podspec => '../node_modules/react-native-background-timer/react-native-background-timer.podspec'
   
   target 'emurgoTests' do
     inherit! :search_paths

@@ -58,7 +58,7 @@
     "react-intl": "^2.8.0",
     "react-markdown": "^4.0.6",
     "react-native": "0.60.0",
-    "react-native-background-timer": "^2.1.1",
+    "react-native-background-timer": "2.2.0",
     "react-native-camera": "^3.19.2",
     "react-native-cardano": "Emurgo/react-native-cardano#bump-react-native-to-0.60",
     "react-native-chain-libs": "Emurgo/react-native-chain-libs#bump-react-native-to-0.60",
