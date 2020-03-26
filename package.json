@@ -79,6 +79,7 @@
     "react-native-sentry": "^0.43.2",
     "react-native-splash-screen": "^3.1.1",
     "react-native-svg": "^7.2.0",
+    "react-native-web": "^0.12.2",
     "react-native-webview": "^8.2.0",
     "react-navigation": "^2.17.0",
     "react-redux": "^5.0.7",
