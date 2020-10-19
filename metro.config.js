@@ -20,7 +20,6 @@ module.exports = {
       buffer: require.resolve('safe-buffer'),
       crypto: require.resolve('react-native-crypto'),
       event: require.resolve('events'),
-      path: require.resolve('path-browserify'),
       stream: require.resolve('stream-browserify'),
       url: require.resolve('url'),
       util: require.resolve('util'),
